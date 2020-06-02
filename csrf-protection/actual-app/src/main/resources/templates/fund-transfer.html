@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actual Application</title>
+</head>
+</br>
+<body align = "center">
+<h2>Welcome to MyBank</h2>
+</br>
+<form action="#" th:action="@{/account/transfer}" th:object="${transfer}" method="post">
+    <label for="toAccount">To Account</label>
+    <input type="text" th:field="*{toAccount}" id="toAccount" placeholder="To Account">
+    <span th:if="${#fields.hasErrors('toAccount')}" th:errors="*{toAccount}"></span>
+    <label for="amount">Amount</label>
+    <input type="text" th:field="*{amount}" id="amount" placeholder="amount">
+    <span th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></span>
+    <input type="submit" value="Transfer">
+</form>
+</body>
+</html>
